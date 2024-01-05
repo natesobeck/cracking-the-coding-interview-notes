@@ -39,3 +39,20 @@ function pairSumSequence(int) {
   return sum
 }
 
+/*
+The above functions only take up O(1) space complexity because the calls do not exist simultaneously in the call stack. These calls take place in sequence. It looks like this:
+
+pairSumSequence(4)
+  let sum = 0
+  for (let i = 0; i < n; i++) {
+    sum += pairSum(i, i + 1) so...
+    
+    sum += (0 + 1) so sum = 1
+    sum += (1 + 2) so sum = 4
+    sum += (2 + 3) so sum = 9
+    sum += (3 + 4) so sum = 16
+
+    Now, since i = 4 and 4 !< 4 the loop breaks with sum = 16
+  }
+  return sum
+*/
